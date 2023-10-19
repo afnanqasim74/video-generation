@@ -3,5 +3,31 @@ h1{
     text-transform: uppercase;
     padding: auto;
     background-color: aqua;
-    text-shadow: crimson;
+    text-shadow: crimson ;
+    
 }
+input[type=text] {
+    width: 100%;
+    padding: 12px 20px;
+    margin: 8px 0;
+    box-sizing: border-box;
+  }
+  .button {
+    
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    /* Make the container take up the full height of the viewport */
+    margin-top: 10px;
+    padding-top: 10px;
+    
+    background-color: #4CAF50; /* Green */
+    padding: 15px 50px;
+    text-align: center;
+    /* text-decoration: none;
+    display: inline-block;
+    font-size: 16px; */
+    
+
+
+  }

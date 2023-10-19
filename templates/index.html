@@ -1,12 +1,19 @@
-|<!DOCTYPE html>
-<html lang="en">
+<!DOCTYPE html>
+<html>
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Test App</title>
-    <link rel="stylesheet" href="{{url_for('static',filename= 'style.css')}}">
+    <title>User Input Example</title>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'style.css')}}">
 </head>
 <body>
-    <h1>This is my APP</Applet></applet></h1>
+    <h1>Enter Some Text</h1>
+    <form method="POST">
+        <input type="text" name="user_input" placeholder="Type something...">
+        <button type="submit" class="button">Submit</button>
+    </form>
+    {% if user_text != None %}
+        {%for f in ai_response %}
+        <p>{{f}}</p>
+        {%endfor%}
+    {% endif %}
 </body>
 </html>
