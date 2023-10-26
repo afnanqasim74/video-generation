@@ -1,0 +1,135 @@
+/* styles.css */
+
+body {
+    font-family: Arial, sans-serif;
+    background-color: #c9c3c3;
+    margin: 0;
+    padding: 0;
+}
+
+h1 {
+    text-align: center;
+    background-color: #007bff;
+    color: #fff;
+    padding: 10px;
+}
+
+form {
+    text-align: center;
+    margin: 20px 0;
+}
+
+input[type="text"] {
+    width: 70%;
+    padding: 10px;
+    margin-right: 10px;
+    border: 1px solid #ccc;
+    border-radius: 4px;
+}
+
+button[type="submit"] {
+    background-color: #007bff;
+    color: #fff;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+}
+
+button[type="submit"]:hover {
+    background-color: #0056b3;
+}
+
+h2 {
+    text-align: center;
+    margin-top: 20px;
+}
+.loading {
+    display: none;
+}
+.table {
+    display: none;
+}
+.row {
+    display: flex;
+}
+.box {
+    border: 1px solid #ccc;
+    margin: 5px;
+    padding: 10px;
+}
+
+.loading-bar-container {
+    display: none;
+    position: fixed;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 300px;
+    background-color: #4e1d1d;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+}
+.loading-bar {
+    width: 0;
+    height: 20px;
+    background-color: #007bff;
+}
+.table {
+    display: none;
+    text-align: top; /* Center-align the lines */
+}
+
+.B-center{
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    /* Make the container take up the full height of the viewport */
+    margin-top: 10px;
+    padding-top: 10px;
+}
+button[type="submit1"] {
+    background-color: #007bff;
+    color: #fff;
+    text-align: center;
+    border: none;
+    padding: 10px 20px;
+    cursor: pointer;
+    border-radius: 4px;
+
+}
+.music-list {
+    display: flex;
+    flex-wrap: wrap;
+    list-style: none;
+    padding: 0;
+}
+
+.music-list li {
+    width: 33.33%; /* Three items in one row */
+    text-align: center;
+    padding: 10px;
+}
+
+.music-box {
+    border: 1px solid #ccc;
+    padding: 10px;
+    text-align: center;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.music-box:hover {
+    background-color: #0056b3; /* Highlight on hover */
+}
+
+/* Style the audio player for each item */
+.music-box audio {
+    width: 100%;
+}
+.mp3List{
+    display: flex;
+    align-items: center; /* Center vertically */
+    justify-content: center; /* Center horizontally */
+    
+}

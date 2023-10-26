@@ -1,0 +1,114 @@
+<!-- <!DOCTYPE html>
+<html>
+<head>
+    <title>User Input Example</title>
+    <link rel="stylesheet" href="{{url_for('static',filename = 'style.css')}}">
+</head>
+<body>
+</body>
+</html> -->
+{% extends 'layout1.html' %}
+
+{%block content%}
+
+<div>
+
+
+    
+<div>
+    <h1>String Processing</h1>
+
+<form id="myForm" method="post">
+    <input type="text" name="user_text" id="user_text" placeholder="Enter a topic">
+    <button type="submit" class="btn btn-primary">Submit</button>
+</form>
+
+<div class="loading" id="loading"><h2>Loading...</h2></div>
+
+<div class="table" id="result">
+  
+</div>
+
+
+<script>
+    document.getElementById('myForm').addEventListener('submit', function(event) {
+        event.preventDefault(); // Prevent the default form submission
+
+        var user_text = document.getElementById('user_text').value;
+        var loadingDiv = document.getElementById('loading');
+        var tableDiv = document.getElementById('result');
+
+        // Show loading indicator
+        loadingDiv.style.display = 'block';
+        tableDiv.innerHTML = ''; // Clear previous results
+
+        fetch('/', {
+            method: 'POST',
+            headers: {
+                'Content-Type': 'application/x-www-form-urlencoded',
+            },
+            body: `user_text=${user_text}`,
+        })
+        .then(response => response.json())
+        .then(data => {
+            // Hide loading indicator
+            loadingDiv.style.display = 'none';
+
+            // Show the boxes
+            tableDiv.style.display = 'block';
+
+            var lines = data.description;
+            var rowDiv;
+
+            for (var i = 0; i < lines.length; i++) {
+                if (i % 3 === 0) {
+                    // Create a new row for every 3 boxes
+                    rowDiv = document.createElement('div');
+                    rowDiv.className = 'row';
+                    tableDiv.appendChild(rowDiv);
+                }
+
+                // Create a box for each line
+                var boxDiv = document.createElement('div');
+                boxDiv.className = 'box';
+                boxDiv.textContent = lines[i];
+                rowDiv.appendChild(boxDiv);
+            }
+        });
+    });
+</script>
+<h1>List of MP3 Files:</h1>
+<div class="B-center container">
+<button type="submit1" id="showMp3Files">Show MP3 Files</button>
+</div>
+<ul id="mp3List" class="B-center music-list"></ul>
+<script>
+$(document).ready(function () {
+    $('#showMp3Files').click(function () {
+        $.ajax({
+            type: 'GET',
+            url: '/list_mp3_files',
+            success: function (data) {
+                var mp3List = $('#mp3List');
+                mp3List.empty();
+                data.forEach(function (mp3File) {
+                    var listItem = $('<li><div class="music-box"><audio controls><source src="static/' + mp3File + '" type="audio/mpeg"></audio></div></li>');
+                    mp3List.append(listItem);
+                });
+            },
+            error: function (error) {
+                console.log(error);
+            }
+        });
+    });
+});
+</script>
+
+</div>
+
+</div>
+
+
+{%endblock%}
+
+
